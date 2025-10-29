@@ -1,0 +1,32 @@
+﻿@page
+@model ProductsModel
+@{
+    // Set the page title
+    ViewData["Title"] = "Northwind Products";
+}
+// Display the page title
+<h1>@ViewData["Title"]</h1>
+
+// Display the list of products in a table
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    // Iterate through the products and display each one in a table row
+        @foreach (var product in Model.Products)
+        {
+            // Display product details
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.CategoryName</td>
+                // Display unit price formatted as currency
+                <td>@product.UnitPrice.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

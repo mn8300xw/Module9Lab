@@ -1,20 +1,17 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
    using System.Collections.Generic;
-
    using System.Data.SqlClient;
 
- 
 
    public class CustomersModel : PageModel
 
    {
+        // A list to hold customer records
+       public required List<Customer> Customers { get; set; }
 
-       public List<Customer> Customers { get; set; }
-
- 
-
-       public void OnGet()
+    [Obsolete]
+    // OnGet method to handle GET requests
+    public void OnGet()
 
        {
             // Create and populate a list of customers with data from the database
@@ -80,12 +77,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
    {
         // Atributes (properties of a customer)
-       public string CustomerID { get; set; }
+       public required string CustomerID { get; set; }
 
-       public string CompanyName { get; set; }
+       public required string CompanyName { get; set; }
 
-       public string ContactName { get; set; }
+       public string? ContactName { get; set; }
 
-       public string Country { get; set; }
+       public string? Country { get; set; }
 
    }
